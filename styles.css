@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(226, 43%, 10%);
+    color: white;
+    font-family: 'Rubik', sans-serif;
+}
+
+.container{
+    display: grid;
+    place-items: center;
+    height: 90vh;
+}
+
+.card-container{
+    display: grid;
+    width: 1000px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "card-user card-work card-play card-study"
+                         "card-user card-exercise card-social card-self";
+    gap: 20px;
+
+}
+
+.card-user{ 
+    background-color: hsl(235, 46%, 20%);;
+    grid-area: card-user;
+    height: 450px;
+    border-radius: 12px;
+    justify-self: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.card-item{
+    border-radius: 12px;
+    position: relative;
+}
+
+.card-work{
+    grid-area: card-work;
+    background: hsl(15, 100%, 70%) url("images/icon-work.svg") no-repeat top right;
+}
+.card-play{ 
+    grid-area: card-play;
+    background: hsl(195, 74%, 62%) url("images/icon-play.svg") no-repeat top right;
+}
+.card-study{ 
+    grid-area: card-study;
+    background: hsl(348, 100%, 68%) url("images/icon-study.svg") no-repeat top right;
+}
+.card-exercise{ 
+    grid-area: card-exercise; 
+    background: hsl(145, 58%, 55%) url("images/icon-exercise.svg") no-repeat top right;
+}
+.card-social{ 
+    grid-area: card-social; 
+    background: hsl(264, 64%, 52%) url("images/icon-social.svg") no-repeat top right;
+}
+.card-self{ 
+    background: hsl(43, 84%, 65%) url("images/icon-self-care.svg") no-repeat top right;
+}
+
+.card-user-header{
+    background-color: hsl(246, 80%, 60%);
+    padding: 30px;
+    padding-bottom: 70px;
+    border-radius: 12px;
+    z-index: 2000;
+}
+
+.img-user{
+    margin-bottom: 30px;
+    width: 80px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+ul{
+    width: 100%;
+    height: 150px;
+    border-radius: 12px;
+    position: absolute;
+    bottom: 0;
+    padding: 30px;
+    display: grid;
+    align-content: space-between;
+    z-index: -1000;
+}
+
+ul li{
+    list-style: none;
+    cursor: pointer;
+    color: rgba(245, 245, 245, 0.651);
+}
+
+li:hover{
+    color: white;
+}
+
+.card-content{
+    background-color: hsl(235, 46%, 20%);
+    border-radius: 12px;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    height: inherit;
+    padding: 30px;
+    width: 100%;
+}
+
+.card-content:hover{
+    cursor: pointer;
+    background-color: hsl(235, 42%, 42%)
+}
+
+.card-content-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card-content-header svg:hover{
+    cursor: pointer;
+}
+
+.title{
+    font-size: 16px;
+}
+
+.title-text{
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.sub-text{
+    padding: 5px 0;
+    font-size: 12px;
+    color: rgba(245, 245, 245, 0.651);
+}
+
+.title-text-content{
+    font-size: 45px;
+    font-weight: 300;
+}
+
+.active{
+    color: white;
+}
+
+@media (max-width: 800px) { 
+
+    .container{
+    
+        display: grid;
+        place-items: center;
+        margin-top: 50px;
+    }
+
+    .card-container{
+        max-width: 375px;
+        width: 100%;
+        padding: 20px;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "card-user"
+                             "card-work" 
+                             "card-play"
+                             "card-study"
+                             "card-exercise"
+                             "card-social" 
+                             "card-self";
+        gap: 20px;
+    
+    }
+
+    .card-user{ 
+        width: 100%;
+        height: 220px;
+    }
+
+    .card-user-header{
+        padding-top: 25px 25px;
+        padding-bottom: 20px;
+        display: grid;
+        grid-template-areas: "img-user sub-text"
+                             "img-user title-text";
+        align-content: center;
+    }
+
+    .img-user{ 
+        grid-area: img-user;
+        margin-bottom: 5px;
+     }
+    .sub-text{ 
+        grid-area: sub-text;
+        align-self: end;
+    }
+    .title-text{ grid-area: title-text; }
+
+    .title-text{
+        font-size: 24px;
+    }
+
+    ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+ }
